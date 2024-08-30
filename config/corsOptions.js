@@ -3,7 +3,7 @@ const cors = require('cors'); // Ensure cors is installed
 
 const corsOptions = {
     origin: (origin, callback) => {
-        if (allowedOrigins.indexOf(origin) !== -1 ) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
             // Allow requests with no origin (e.g., Postman or mobile apps)
             callback(null, true);
         } else {
@@ -11,6 +11,7 @@ const corsOptions = {
         }
     },
     credentials: true, // Allow credentials (e.g., cookies, headers)
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     optionsSuccessStatus: 200, // For legacy browser support
 };
 
