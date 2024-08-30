@@ -3,7 +3,7 @@ const cors = require('cors'); // Ensure cors is installed
 
 const corsOptions = {
     origin: (origin, callback) => {
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        if (allowedOrigins.indexOf(origin) !== -1 ) {
             // Allow requests with no origin (e.g., Postman or mobile apps)
             callback(null, true);
         } else {
